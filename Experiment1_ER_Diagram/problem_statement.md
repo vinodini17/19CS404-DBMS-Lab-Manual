@@ -74,32 +74,41 @@ The Central Library wants to manage book lending and cultural events.
 - Overdue fines apply for late returns.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_library.png)
+<img width="751" height="450" alt="image" src="https://github.com/user-attachments/assets/88613cc9-f48e-40bf-8d6b-128354936ae8" />
+
 
 ### Entities and Attributes
 
 | Entity | Attributes (PK, FK) | Notes |
 |--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| **Member**  | Memb_ID (PK), Memb_Name, Contact_No, Date                                        | Members can borrow books and register for events    |
+| **Book**    | Book_ID (PK), Title, Author, Category                                            | Books can be borrowed by members through loans      |
+| **Loan**    | Loan_ID (PK), Memb_ID (FK), Book_ID (FK), Loan_Date, Return_Date, Due_Date, Fine | Records details of book loans by members            |
+| **Event**   | Event_ID (PK), Event_Name, Event_Date                                            | Events conducted in rooms and registered by members |
+| **Room**    | Room_ID (PK), Room_Name, Capacity, Purpose                                       | Rooms host events and are associated with speakers  |
+| **Speaker** | Speaker_ID (PK), Name                                                            | Speakers are assigned to rooms for events           |
+
 
 ### Relationships and Constraints
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+| **Member – Loan** (Can Have)      | 1:N             | Total             | Each member can have multiple loans                 |
+| **Book – Loan** (Have)            | 1:N             | Total             | Each book can be issued in multiple loans over time |
+| **Member – Event** (Can Register) | M:N             | Partial           | A member can register for multiple events           |
+| **Event – Room** (Occurs)         | 1:N             | Total             | Each event occurs in one room                       |
+| **Room – Speaker** (Have)         | 1:N             | Partial           | Each room can have multiple speakers                |
 
 ### Assumptions
-- 
-- 
-- 
+-Each member can borrow multiple books.
 
+-Each loan is linked to one member and one book.
+
+-Each event occurs in one room.
+
+-Each room can have multiple speakers.
+
+- Fines are applied if books are returned late.
 ---
 
 # Scenario C: Restaurant Table Reservation & Ordering
