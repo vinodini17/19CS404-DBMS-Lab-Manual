@@ -41,9 +41,11 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+| **Member – Program** (Joins)     | M:N             | Partial           | Handled via **Joins** relationship between Members and Programs                |
+| **Program – Trainer** (Conducts) | M:N             | Partial           | Handled via **Conducts** relationship between Programs and Trainers            |
+| **Trainer – Payment** (Duty)     | 1:N             | Partial           | A trainer can have multiple payments for duties                                |
+| **Member – Payment**             | 1:N             | Total             | Each member can make multiple payments, but each payment belongs to one member |
+
 
 ### Assumptions
 - 
