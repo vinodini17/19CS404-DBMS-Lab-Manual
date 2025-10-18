@@ -100,13 +100,13 @@ The Central Library wants to manage book lending and cultural events.
 | **Room – Speaker** (Have)         | 1:N             | Partial           | Each room can have multiple speakers                |
 
 ### Assumptions
--Each member can borrow multiple books.
+- Each member can borrow multiple books.
 
--Each loan is linked to one member and one book.
+- Each loan is linked to one member and one book.
 
--Each event occurs in one room.
+- Each event occurs in one room.
 
--Each room can have multiple speakers.
+- Each room can have multiple speakers.
 
 - Fines are applied if books are returned late.
 ---
@@ -156,15 +156,15 @@ A popular restaurant wants to manage reservations, orders, and billing.
 
 
 ### Assumptions
--Each customer can make multiple reservations, but each reservation is for one table only.
+- Each customer can make multiple reservations, but each reservation is for one table only.
 
--Every reservation can generate one or more orders.
+- Every reservation can generate one or more orders.
 
--Each order is handled by a single waiter and produces one bill.
+- Each order is handled by a single waiter and produces one bill.
 
--Each bill can include multiple dishes.
+- Each bill can include multiple dishes.
 
--Every dish and table belongs to one category.
+- Every dish and table belongs to one category.
 
 ---
 
