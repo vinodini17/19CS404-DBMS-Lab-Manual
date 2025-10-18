@@ -48,9 +48,15 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 
 ### Assumptions
-- 
-- 
-- 
+- Each member can join multiple programs.
+
+- Each program can be conducted by one or more trainers.
+
+- Each trainer can receive multiple payments.
+
+- Each member can make multiple payments.
+
+- Every payment record is linked to only one member and one trainer.
 
 ---
 
