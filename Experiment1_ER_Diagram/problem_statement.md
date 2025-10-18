@@ -125,32 +125,46 @@ A popular restaurant wants to manage reservations, orders, and billing.
 - Waiters assigned to serve reservations.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_restaurant.png)
+<img width="725" height="432" alt="image" src="https://github.com/user-attachments/assets/0e9049ae-8ac6-42ec-bbb4-6606f3caffe9" />
+
 
 ### Entities and Attributes
 
 | Entity | Attributes (PK, FK) | Notes |
 |--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| **Customer**    | CustomerID (PK), Name, Phone_No                                          | Customers make reservations and place orders.                        |
+| **Reservation** | ReservationID (PK), Reservation_Date_Time, CustomerID (FK), TableID (FK) | Records reservation details and links customers to tables.           |
+| **Table**       | TableID (PK), Table_Number, Capacity, CategoryID (FK)                    | Each table belongs to a category and can have multiple reservations. |
+| **Category**    | CategoryID (PK), Category_Name                                           | Describes the category of a table (e.g., VIP, Family, Outdoor).      |
+| **Waiter**      | WaiterID (PK), Name, Phone_No                                            | Waiters serve customer orders.                                       |
+| **Order**       | OrderID (PK), Order_Time, ReservationID (FK), WaiterID (FK)              | Represents a customer’s order, linked to reservation and waiter.     |
+| **Dish**        | DishID (PK), Name, Price, CategoryID (FK)                                | Dishes belong to categories and are listed in the order.             |
+| **Bill**        | BillID (PK), OrderID (FK), Total_Amount                                  | Generated for each order.                                            |
 
 ### Relationships and Constraints
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+| **Customer – Reservation (books)**    | Customer ↔ Reservation | 1 : N           | Total on Reservation | A customer can make multiple reservations.     |
+| **Reservation – Table (assigned to)** | Reservation ↔ Table    | N : 1           | Total on Reservation | Each reservation is assigned to one table.     |
+| **Reservation – Order (generates)**   | Reservation ↔ Order    | 1 : N           | Total on Order       | Each reservation can generate multiple orders. |
+| **Order – Waiter (serves)**           | Order ↔ Waiter         | N : 1           | Total on Order       | Each order is served by one waiter.            |
+| **Order – Bill (produces)**           | Order ↔ Bill           | 1 : 1           | Total on both        | Each order generates exactly one bill.         |
+| **Bill – Dish (contains)**            | Bill ↔ Dish            | M : N           | Partial              | Each bill can contain multiple dishes.         |
+| **Dish – Category (belongs to)**      | Dish ↔ Category        | N : 1           | Total on Dish        | Each dish belongs to one category.             |
+| **Table – Category (classified as)**  | Table ↔ Category       | N : 1           | Total on Table       | Each table belongs to one category.            |
+
 
 ### Assumptions
-- 
-- 
-- 
+-Each customer can make multiple reservations, but each reservation is for one table only.
 
+-Every reservation can generate one or more orders.
+
+-Each order is handled by a single waiter and produces one bill.
+
+-Each bill can include multiple dishes.
+
+- Every dish and table belongs to one category.
 ---
 
 ## Instructions for Students
