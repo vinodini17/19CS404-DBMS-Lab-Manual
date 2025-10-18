@@ -164,7 +164,8 @@ A popular restaurant wants to manage reservations, orders, and billing.
 
 -Each bill can include multiple dishes.
 
-- Every dish and table belongs to one category.
+-Every dish and table belongs to one category.
+
 ---
 
 ## Instructions for Students
