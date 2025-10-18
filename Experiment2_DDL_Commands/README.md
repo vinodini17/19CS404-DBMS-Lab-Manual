@@ -175,6 +175,7 @@ Address TEXT
 
 
 **Question 5**
+---
 Insert a book with ISBN 978-1234567890, Title Data Science Essentials, Author Jane Doe, Publisher TechBooks, and Year 2024 into the Books table.
 
 ```sql
