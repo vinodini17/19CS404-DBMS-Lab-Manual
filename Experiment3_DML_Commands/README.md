@@ -145,20 +145,19 @@ WHERE OPENING_AMT BETWEEN 4000 AND 6000;
 ---
 Write a SQL statement to change the EMAIL and COMMISSION_PCT column of the following EMPLOYEES table with 'not available' and 0.55 for those employees whose DEPARTMENT_ID is 110.
 ---
-Employees table
-
----------------
-employee_id
-first_name
-last_name
-email
-phone_number
-hire_date
-job_id
-salary
-commission_pct
-manager_id
-department_id
+|Employees table|
+|---------------|
+|employee_id|
+|first_name|
+|last_name|
+|email|
+|phone_number|
+|hire_date|
+|job_id|
+|salary|
+|commission_pct|
+|manager_id|
+|department_id|
 ```sql
 UPDATE Employees
 SET email = 'not available',
@@ -173,11 +172,12 @@ WHERE department_id = 110;
 ---
 Show the categoryName and description from the categories table sorted by categoryName.
 ---
-name                     type
----------------       ---------------
-CategoryID           INTEGER
-CategoryName     VARCHAR(25)
-Description          VARCHAR(255)
+| Name         | Type        |
+|--------------|------------|
+| CategoryID   | INTEGER    |
+| CategoryName | VARCHAR(25)|
+| Description  | VARCHAR(255)|
+
 ```sql
 SELECT 
     CategoryName, 
@@ -224,13 +224,12 @@ WHERE purchase_date = '2022-08-15'
 ---
 Write a SQL statement to update the product_name as 'Grapefruit' whose product_id is 4 in the products table.
 ---
-products table
-
----------------
-product_id
-product_name
-category_id
-availability 
+|products table|
+|---------------|
+|product_id|
+|product_name|
+|category_id|
+|availability|
 ```sql
 UPDATE products
 SET product_name = 'Grapefruit'
