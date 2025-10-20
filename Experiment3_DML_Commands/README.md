@@ -48,7 +48,7 @@ SELECT column1, column2 FROM table_name WHERE condition;
 **Question 1**
 --
 Write a SQL query to Delete customers from 'customer' table where 'CUST_NAME' contains the substring 'Holmes'.
---
+---
 Sample table: Customer
 
 | CUST_CODE | CUST_NAME | CUST_CITY | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT | OUTSTANDING_AMT | PHONE_NO | AGENT_CODE |
@@ -84,6 +84,7 @@ WHERE doctor_id BETWEEN 2 AND 4;
 **Question 3**
 ---
 Write a SQL query to find all orders that meet the following conditions. Exclude combinations of order date equal to '2012-08-17' or customer ID greater than 3005 and purchase amount less than 1000.
+---
 Sample table : orders
 | ord_no | purch_amt | ord_date   | customer_id | salesman_id |
 |---------|------------|------------|--------------|--------------|
@@ -105,6 +106,7 @@ WHERE NOT (
 **Question 4**
 ---
 write a SQL query to find customers who are either from the city 'New York' or who do not have a grade greater than 100. Return customer_id, cust_name, city, grade, and salesman_id.
+---
 Sample table: customer
 | customer_id | cust_name    | city        | grade | salesman_id |
 |--------------|--------------|-------------|--------|--------------|
@@ -124,6 +126,7 @@ WHERE city = 'New York'
 **Question 5**
 ---
 Write a SQL query to Delete customers from 'customer' table where 'OPENING_AMT' is between 4000 and 6000.
+---
 Sample table: Customer
 | CUST_CODE | CUST_NAME | CUST_CITY | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT | OUTSTANDING_AMT | PHONE_NO | AGENT_CODE |
 |------------|------------|------------|---------------|---------------|--------|--------------|--------------|--------------|----------------|-----------|-------------|
@@ -141,6 +144,7 @@ WHERE OPENING_AMT BETWEEN 4000 AND 6000;
 **Question 6**
 ---
 Write a SQL statement to change the EMAIL and COMMISSION_PCT column of the following EMPLOYEES table with 'not available' and 0.55 for those employees whose DEPARTMENT_ID is 110.
+---
 Employees table
 
 ---------------
@@ -168,6 +172,7 @@ WHERE department_id = 110;
 **Question 7**
 ---
 Show the categoryName and description from the categories table sorted by categoryName.
+---
 name                     type
 ---------------       ---------------
 CategoryID           INTEGER
@@ -186,6 +191,7 @@ ORDER BY CategoryName;
 **Question 8**
 ---
 Write a SQL query to retrieve the year, month, and day from the hiredate column in the emp table.
+---
 ```sql
 SELECT 
     strftime('%Y', hiredate) AS Year,
@@ -200,6 +206,7 @@ FROM emp;
 **Question 9**
 ---
 Write a SQL statement to Update the per_unit_price to 25 and total_price accordingly in purchases table where purchase_date is '2022-08-15' and product_id is 12.
+---
 <img width="310" height="291" alt="image" src="https://github.com/user-attachments/assets/c2acac8d-9ac0-4789-8ffa-3921b8b2d4e1" />
 
 ```sql
@@ -216,6 +223,7 @@ WHERE purchase_date = '2022-08-15'
 **Question 10**
 ---
 Write a SQL statement to update the product_name as 'Grapefruit' whose product_id is 4 in the products table.
+---
 products table
 
 ---------------
