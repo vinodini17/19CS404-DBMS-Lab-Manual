@@ -47,9 +47,9 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Write a SQL query to Delete customers from 'customer' table where 'CUST_NAME' contains the substring 'Holmes'.
+Write a SQL query to Delete customers from 'customer' table where 'CUST_NAME' contains the substring 'Holmes'.
 ```sql
--- DELETE FROM Customer
+DELETE FROM Customer
 WHERE CUST_NAME LIKE '%Holmes%';
 
 ```
