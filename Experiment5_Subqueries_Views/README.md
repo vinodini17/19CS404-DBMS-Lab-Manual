@@ -43,6 +43,7 @@ Write a SQL query that retrieves the all the columns from the Table Grades, wher
 Sample table: GRADES
 
 <img width="644" height="271" alt="image" src="https://github.com/user-attachments/assets/fda3c442-f1bb-454d-9dc3-ce1d9ac003c5" />
+
 ```sql
 SELECT *
 FROM GRADES g
@@ -110,88 +111,165 @@ WHERE s.city = 'New York';
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to Retrieve the names and cities of customers who have the same city as customers with IDs 3 and 7
+---
+SAMPLE TABLE: customer
+| Name  | Type    |
+|-------|---------|
+| id    | INTEGER |
+| name  | TEXT    |
+| city  | TEXT    |
+| email | TEXT    |
+| phone | INTEGER |
 
 ```sql
--- Paste your SQL code below for Question 4
+SELECT name, city
+FROM customer
+WHERE city IN (
+    SELECT city
+    FROM customer
+    WHERE id IN (3, 7)
+);
 ```
 
 **Output:**
-
-![Output4](output.png)
+<img width="1238" height="479" alt="image" src="https://github.com/user-attachments/assets/d514d198-9e85-4aeb-909d-935782a5e211" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query that retrieves the names of students and their corresponding grades, where the grade is equal to the minimum grade achieved in each subject.
+---
+Sample table: GRADES
+
+<img width="599" height="246" alt="image" src="https://github.com/user-attachments/assets/24c39850-125b-4a90-8d89-e032c13ccabd" />
 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT student_name, grade
+FROM GRADES g
+WHERE grade = (
+    SELECT MIN(grade)
+    FROM GRADES
+    WHERE subject = g.subject
+);
 ```
 
 **Output:**
-
-![Output5](output.png)
+<img width="1242" height="457" alt="image" src="https://github.com/user-attachments/assets/050dc89f-c694-49c2-b2ab-bf05c50f9b03" />
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose salary is EQUAL TO $1500.
+---
+Sample table: CUSTOMERS
+| ID | NAME     | AGE | ADDRESS    | SALARY |
+|----|----------|-----|------------|--------|
+| 1  | Ramesh   | 32  | Ahmedabad  | 2000   |
+| 2  | Khilan   | 25  | Delhi      | 1500   |
+| 3  | Kaushik  | 23  | Kota       | 2000   |
+| 4  | Chaitali | 25  | Mumbai     | 6500   |
+| 5  | Hardik   | 27  | Bhopal     | 8500   |
+| 6  | Komal    | 22  | Hyderabad  | 4500   |
+| 7  | Muffy    | 24  | Indore     | 10000  |
 
 ```sql
--- Paste your SQL code below for Question 6
+SELECT *
+FROM CUSTOMERS
+WHERE SALARY = 1500;
 ```
 
 **Output:**
+<img width="1244" height="379" alt="image" src="https://github.com/user-attachments/assets/f04ba21e-5988-42a2-bc3e-c2e530a2356d" />
 
-![Output6](output.png)
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to Retrieve the medications with dosages equal to the lowest dosage
+---
+Medications Table
+
+<img width="755" height="180" alt="image" src="https://github.com/user-attachments/assets/2a7ea2e5-154a-4d7a-b4c8-f160f05d5d51" />
 
 ```sql
--- Paste your SQL code below for Question 7
+SELECT *
+FROM Medications
+WHERE dosage = (
+    SELECT MIN(dosage)
+    FROM Medications
+);
 ```
 
 **Output:**
-
-![Output7](output.png)
+<img width="1252" height="427" alt="image" src="https://github.com/user-attachments/assets/915ba6e6-3540-469f-86d3-625873dc9a7c" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+From the following tables, write a SQL query to find all the orders issued by the salesman 'Paul Adam'. Return ord_no, purch_amt, ord_date, customer_id and salesman_id.
+
+<img width="626" height="324" alt="image" src="https://github.com/user-attachments/assets/0bba069f-5e2a-43bf-a031-29e19a575262" />
 
 ```sql
--- Paste your SQL code below for Question 8
+SELECT o.ord_no, o.purch_amt, o.ord_date, o.customer_id, o.salesman_id
+FROM Orders o
+JOIN Salesman s
+ON o.salesman_id = s.salesman_id
+WHERE s.name = 'Paul Adam';
 ```
 
 **Output:**
-
-![Output8](output.png)
+<img width="1245" height="415" alt="image" src="https://github.com/user-attachments/assets/af6a29f5-91c7-4df5-9d33-4b3b87c321fd" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to Find employees who have an age less than the average age of employees with incomes over 1 million
+---
+Employee Table
+| Name   | Type    |
+|--------|---------|
+| id     | INTEGER |
+| name   | TEXT    |
+| age    | INTEGER |
+| city   | TEXT    |
+| income | INTEGER |
 
 ```sql
--- Paste your SQL code below for Question 9
+SELECT *
+FROM Employee
+WHERE age < (
+    SELECT AVG(age)
+    FROM Employee
+    WHERE income > 1000000
+);
 ```
 
 **Output:**
-
-![Output9](output.png)
+<img width="1279" height="387" alt="image" src="https://github.com/user-attachments/assets/1a8f389b-25a5-4a27-8428-88cdc02354ef" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to Retrieve the names of customers who have a phone number that is not shared with any other customer.
+---
+SAMPLE TABLE: customer
+| Name  | Type    |
+|-------|---------|
+| id    | INTEGER |
+| name  | TEXT    |
+| city  | TEXT    |
+| email | TEXT    |
+| phone | INTEGER |
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT name
+FROM customer
+WHERE phone IN (
+    SELECT phone
+    FROM customer
+    GROUP BY phone
+    HAVING COUNT(*) = 1
+);
 ```
 
 **Output:**
-
-![Output10](output.png)
-
+![Uploading image.png…]()
 
 ## RESULT
 Thus, the SQL queries to implement subqueries and views have been executed successfully.
