@@ -48,6 +48,7 @@ SELECT column1, column2 FROM table_name WHERE condition;
 **Question 1**
 --
 Write a SQL query to Delete customers from 'customer' table where 'CUST_NAME' contains the substring 'Holmes'.
+--
 Sample table: Customer
 
 | CUST_CODE | CUST_NAME | CUST_CITY | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT | OUTSTANDING_AMT | PHONE_NO | AGENT_CODE |
