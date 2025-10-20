@@ -204,7 +204,7 @@ WHERE dosage = (
 **Question 8**
 ---
 From the following tables, write a SQL query to find all the orders issued by the salesman 'Paul Adam'. Return ord_no, purch_amt, ord_date, customer_id and salesman_id.
-
+---
 <img width="626" height="324" alt="image" src="https://github.com/user-attachments/assets/0bba069f-5e2a-43bf-a031-29e19a575262" />
 
 ```sql
