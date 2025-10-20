@@ -69,7 +69,9 @@ WHERE CUST_NAME LIKE '%Holmes%';
 **Question 2**
 ---
 Write a SQL query to Delete All Doctors whose ID ranges from 2 to 4.
+---
 Sample table: Doctors
+
 attributes : doctor_id, first_name, last_name, specialization
 ```sql
 DELETE FROM doctors
