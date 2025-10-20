@@ -389,7 +389,7 @@ WHERE c.city <> s.city
 ```
 
 **Output:**
-<img width="1448" height="443" alt="image" src="https://github.com/user-attachments/assets/56966a76-fa42-4706-a1ee-123d25e8ce29" />
+<img width="1444" height="446" alt="image" src="https://github.com/user-attachments/assets/1935dc45-86b2-403a-aa26-24ea543b4b63" />
 
 
 ## RESULT
