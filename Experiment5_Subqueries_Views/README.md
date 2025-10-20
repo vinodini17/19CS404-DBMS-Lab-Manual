@@ -269,7 +269,7 @@ WHERE phone IN (
 ```
 
 **Output:**
-![Uploading image.png…]()
+<img width="1272" height="427" alt="image" src="https://github.com/user-attachments/assets/db2204d8-0491-4c76-84f0-a32100e559e1" />
 
 ## RESULT
 Thus, the SQL queries to implement subqueries and views have been executed successfully.
