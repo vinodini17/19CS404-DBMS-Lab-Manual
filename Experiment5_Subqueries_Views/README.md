@@ -41,6 +41,7 @@ DROP VIEW view_name;
 Write a SQL query that retrieves the all the columns from the Table Grades, where the grade is equal to the minimum grade achieved in each subject.
 --
 Sample table: GRADES
+
 <img width="644" height="271" alt="image" src="https://github.com/user-attachments/assets/fda3c442-f1bb-454d-9dc3-ce1d9ac003c5" />
 ```sql
 SELECT *
@@ -59,13 +60,16 @@ WHERE grade = (
 Write a query to display all the customers whose ID is the difference between the salesperson ID of Mc Lyon and 2001.
 ---
 salesman table
+
 | Name        | Type          |
 |------------|---------------|
 | salesman_id | numeric(5)   |
 | name        | varchar(30)  |
 | city        | varchar(15)  |
 | commission  | decimal(5,2) |
+
 customer table
+
 | Name        | Type |
 |------------|------|
 | customer_id | int  |
