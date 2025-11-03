@@ -1,4 +1,4 @@
-<img width="679" height="288" alt="image" src="https://github.com/user-attachments/assets/09400274-ff83-426f-95c8-aaa66a9bcd99" /># Experiment 7: PL/SQL – Variables, Control Structures and Loops
+# Experiment 7: PL/SQL – Variables, Control Structures and Loops
 
 ## AIM
 To write and execute simple PL/SQL programs using variables, loops, and conditional statements.
@@ -120,10 +120,11 @@ END;
 /
 
 ```
----
+
 ## Output:
 <img width="679" height="288" alt="image" src="https://github.com/user-attachments/assets/cd2cc1da-010e-452e-8432-86a48678cdaf" />
 
+---
 ## 4. Write a PL/SQL Program to display the number in Reverse Order
 
 ### Steps:
@@ -134,6 +135,27 @@ END;
 **Expected Output:**  
 n = 1535  
 Reversed number is 5351
+## Program:
+```
+DECLARE
+    n NUMBER := 1535;
+    rem NUMBER;
+    rev NUMBER := 0;
+    temp NUMBER := n;
+BEGIN
+    WHILE temp > 0 LOOP
+        rem := MOD(temp, 10);
+        rev := (rev * 10) + rem;
+        temp := FLOOR(temp / 10);
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('n = ' || n);
+    DBMS_OUTPUT.PUT_LINE('Reversed number is ' || rev);
+END;
+/
+
+```
+## Output:
+<img width="866" height="166" alt="image" src="https://github.com/user-attachments/assets/689ad882-8c31-49b6-82c5-e0d6f82db0c9" />
 
 ---
 
@@ -147,8 +169,29 @@ Reversed number is 5351
 **Expected Output:**  
 a = 10, b = 9, c = 15  
 Largest of three number is 15
+## Program:
+```
+DECLARE
+    a NUMBER := 10;
+    b NUMBER := 9;
+    c NUMBER := 15;
+BEGIN
+    IF (a > b) AND (a > c) THEN
+        DBMS_OUTPUT.PUT_LINE('Largest of three number is ' || a);
+    ELSIF (b > a) AND (b > c) THEN
+        DBMS_OUTPUT.PUT_LINE('Largest of three number is ' || b);
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Largest of three number is ' || c);
+    END IF;
+END;
+/
+```
+## Output:
+<img width="888" height="154" alt="image" src="https://github.com/user-attachments/assets/7813116e-ff2b-4910-ace7-7db7c064af67" />
+
 
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
+
 
 
