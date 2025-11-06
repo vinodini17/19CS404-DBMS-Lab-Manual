@@ -305,14 +305,16 @@ The program should display employee names with their department numbers or the a
 ```
 SET SERVEROUTPUT ON;
 
+-- Step 1: Drop the employees table if it exists
 BEGIN
     EXECUTE IMMEDIATE 'DROP TABLE employees';
 EXCEPTION
     WHEN OTHERS THEN
-        NULL;
+        NULL; -- Ignore error if table doesn't exist
 END;
 /
 
+-- Step 2: Create employees table with required fields
 CREATE TABLE employees (
     emp_id      NUMBER PRIMARY KEY,
     emp_name    VARCHAR2(100),
@@ -321,30 +323,50 @@ CREATE TABLE employees (
 );
 /
 
--- Insert one row to avoid NO_DATA_FOUND
+-- Step 3: Insert sample data
 BEGIN
     INSERT INTO employees VALUES (1, 'Alice', 'Manager', 6000);
+    INSERT INTO employees VALUES (2, 'Bob', 'Developer', 4500);
+    INSERT INTO employees VALUES (3, 'Charlie', 'Analyst', 5000);
+    INSERT INTO employees VALUES (4, 'David', 'Tester', 4000);
     COMMIT;
 END;
 /
 
+-- Step 4: PL/SQL block using cursor with %ROWTYPE
 DECLARE
-    CURSOR c_emp IS SELECT * FROM employees;
-    v_emp c_emp%ROWTYPE;
-    v_dummy NUMBER;
-BEGIN
-    OPEN c_emp;
-    FETCH c_emp INTO v_emp;
-    CLOSE c_emp;
+    CURSOR emp_cursor IS
+        SELECT * FROM employees;
 
-    -- Force an error
-    v_dummy := v_emp.salary / 0;
+    v_emp emp_cursor%ROWTYPE;  -- Variable to hold complete row
+    v_found BOOLEAN := FALSE;  -- Flag to check if any row is fetched
+BEGIN
+    OPEN emp_cursor;
+    LOOP
+        FETCH emp_cursor INTO v_emp;
+        EXIT WHEN emp_cursor%NOTFOUND;
+
+        v_found := TRUE;
+
+        DBMS_OUTPUT.PUT_LINE(
+            'ID: ' || v_emp.emp_id ||
+            ', Name: ' || v_emp.emp_name ||
+            ', Designation: ' || v_emp.designation ||
+            ', Salary: ' || v_emp.salary
+        );
+    END LOOP;
+    CLOSE emp_cursor;
+
+    -- If no rows were found, raise NO_DATA_FOUND
+    IF NOT v_found THEN
+        RAISE NO_DATA_FOUND;
+    END IF;
 
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
         DBMS_OUTPUT.PUT_LINE('No employee records found.');
     WHEN OTHERS THEN
-        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+        DBMS_OUTPUT.PUT_LINE('An unexpected error occurred: ' || SQLERRM);
 END;
 /
 ```
@@ -353,7 +375,8 @@ END;
 The program should display employee records or the appropriate error message if no data is found.
 
 **Output:**  
-<img width="721" height="150" alt="image" src="https://github.com/user-attachments/assets/2c2bd5a6-34a1-4f93-b429-ff67fc1eba59" />
+<img width="659" height="213" alt="image" src="https://github.com/user-attachments/assets/6bc7f2d9-8079-47e3-97d6-2eb203ce8e6b" />
+
 
 ---
 
