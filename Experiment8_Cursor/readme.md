@@ -214,10 +214,10 @@ EXCEPTION
 END;
 /
 ```
-
 **Required Output:**
 
 The program should display the employee details within the specified salary range or an error message if no data is found.
+
 
 **Output:**
 
