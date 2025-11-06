@@ -282,7 +282,8 @@ END;
 The program should display employee names with their department numbers or the appropriate error message if no data is found.
 
 **Output:**  
-<img width="729" height="103" alt="image" src="https://github.com/user-attachments/assets/38853e23-0f18-4933-a308-272ff9cf7f99" />
+<img width="682" height="151" alt="image" src="https://github.com/user-attachments/assets/153e11eb-015f-40e0-aebc-2f054170c6b9" />
+
 
 ---
 
